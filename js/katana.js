@@ -1,4 +1,7 @@
 var katana ={
+/* 
+*probando
+*/
 extend:function(e, o){
 		if (typeof e == "string")
 		return document.getElementById(e);
