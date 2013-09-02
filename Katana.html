@@ -1,0 +1,186 @@
+<!Doctype HTML>
+<html lang="en-US">
+<head>
+<meta charSet="UTF-8">
+<title>Framework</title> 
+<script type="text/javascript" src="js/katana.js"></script>
+
+<STYLE TYPE="text/css">
+*{
+
+	margin: 0px;
+}
+#container{
+width: 1024px;
+border: solid 1px #ccc;
+min-height: 500px;
+font-size: 18px;
+font-family: "sans-serif";
+
+
+
+}
+.header h1{
+
+
+font-size: 32px;
+width: 100%;
+text-align: center;	
+}
+
+.header nav{
+width: 100%;
+text-align: right;
+
+}
+.header nav ul li{
+
+display: inline-block;
+
+}
+.wrapper{
+
+
+
+}
+
+.footer{
+
+
+
+}
+.header nav a {
+	text-decoration: none;
+	color:orange;
+
+}
+.header nav a:hover{
+
+text-decoration: underline;
+
+
+}
+</STYLE>
+</head>
+<body>
+	<div id="container">
+
+	</div>
+	<script type="text/javascript">
+		(function(){
+			//----- header----------
+			var opch= {
+			"id": "header",
+			"class":"header"
+			}
+			
+			var h= $.crear("div" ,opch);
+
+			var h1 = $.crear("h1");
+			h1.esc("Titulo");
+			h1.css({"background" :"#ccc"});
+			h.metele(h1);
+
+			
+			var nav = $.crear("nav");
+			
+			//creamos los elementos
+			
+			/*
+			var ul = $.crear("ul");
+			var li1 = $.crear("li");
+			var li2 = $.crear("li");
+			var li3 = $.crear("li");
+			var a1 = $.crear("a");
+			var a2 = $.crear("a");
+			var a3 = $.crear("a");
+			a1.href="#";
+			a2.href="#";
+			a3.href="#";
+			
+			ul.metele(li1);
+			ul.metele(li2);
+			ul.metele(li3);
+			li1.metele(a1);
+			li2.metele(a2);
+			li3.metele(a3);
+			a1.esc("Inicio");
+			a2.esc("Nosotros");
+			a3.esc("Contactos");
+			
+			
+
+			//agregamos nav
+			nav.metele(ul);
+			h.metele(nav);
+
+			*/
+
+			//otra forma
+
+			var menu = new Array("Inicio" , "Contactos" , "Nosotros");
+			for (var t=0; t<3; t++) {
+			var li= $.crear("li");
+			var ul= $.crear("ul");
+			var a = $.crear("a");
+
+			a.esc(menu[t]);
+			li.metele(a);
+			ul.metele(li);			
+			}
+			nav.metele(ul);
+			h.metele(nav); 
+			
+			
+
+			//-----wrapper--------
+
+			//creamos el wrapper
+			var opcw= {
+			"id": "wrapper",
+			"class":"wrapper"
+			}
+			var w= $.crear("div" ,opcw);
+
+			//creamos un form
+			var form = $.crear("form");
+			var opcIn = {
+				"id": "nombre",
+				"placeholder": "Ingrese nombre"
+
+			}
+			var nombre = $.crear ("input" ,opcIn);
+			var opcOb = {
+				"vacio" : true,
+				"num" : true,
+				"max" : 10,
+				"correo" : true
+
+
+			} 
+			nombre.obliga(opcOb);
+			nombre.metele(nombre);
+			w.metele(form);
+			
+		
+			//---------footer-----------
+
+			var opcf= {
+			"id": "footer",
+			"class":"footer"
+			}
+			var f= $.crear("div" ,opcf);
+			
+			
+			
+			$.obt("container").metele(h);
+			$.obt("container").metele(w);
+			$.obt("container").metele(f);
+			
+
+
+		})();
+		
+	</script>
+</body>
+</html>
